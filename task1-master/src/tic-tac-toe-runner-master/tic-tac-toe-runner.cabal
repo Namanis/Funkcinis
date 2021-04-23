@@ -1,0 +1,83 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           tic-tac-toe-runner
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/vipo/tic-tac-toe-runner#readme>
+homepage:       https://github.com/vipo/tic-tac-toe-runner#readme
+bug-reports:    https://github.com/vipo/tic-tac-toe-runner/issues
+author:         Viaceslav Pozdniakov
+maintainer:     pi@homedir.eu
+copyright:      2020 Viaceslav Pozdniakov
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/vipo/tic-tac-toe-runner
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_tic_tac_toe_runner
+  hs-source-dirs:
+      src
+  build-depends:
+      ansi-terminal
+    , base >=4.7 && <5
+    , bytestring
+    , http-client
+    , lens
+    , process
+    , string-conversions
+    , text
+    , wreq
+  default-language: Haskell2010
+
+executable tic-tac-toe-defender
+  main-is: Main.hs
+  other-modules:
+      Paths_tic_tac_toe_runner
+  hs-source-dirs:
+      defender
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      ansi-terminal
+    , base >=4.7 && <5
+    , bytestring
+    , http-client
+    , lens
+    , process
+    , string-conversions
+    , text
+    , tic-tac-toe-runner
+    , wreq
+  default-language: Haskell2010
+
+executable tic-tac-toe-offender
+  main-is: Main.hs
+  other-modules:
+      Paths_tic_tac_toe_runner
+  hs-source-dirs:
+      offender
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      ansi-terminal
+    , base >=4.7 && <5
+    , bytestring
+    , http-client
+    , lens
+    , process
+    , string-conversions
+    , text
+    , tic-tac-toe-runner
+    , wreq
+  default-language: Haskell2010

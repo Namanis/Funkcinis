@@ -1,0 +1,55 @@
+name:                tic-tac-toe-runner
+version:             0.1.0.0
+github:              "vipo/tic-tac-toe-runner"
+license:             BSD3
+author:              "Viaceslav Pozdniakov"
+maintainer:          "pi@homedir.eu"
+copyright:           "2020 Viaceslav Pozdniakov"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/vipo/tic-tac-toe-runner#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- ansi-terminal
+- bytestring
+- http-client
+- process
+- lens
+- string-conversions
+- text
+- wreq
+
+library:
+  source-dirs: src
+
+executables:
+  tic-tac-toe-offender:
+    main:                Main.hs
+    source-dirs:         offender
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - tic-tac-toe-runner
+  
+  tic-tac-toe-defender:
+    main:                Main.hs
+    source-dirs:         defender
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - tic-tac-toe-runner
